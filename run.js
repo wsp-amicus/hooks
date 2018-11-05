@@ -1,6 +1,7 @@
 const shell = require("shelljs");
 
 const deploy = () => {
+  shell.exec("sudo kill $(sudo lsof -t -i :5555);");
   shell.exec("../sshalert.sh");
   shell.exec("./script.sh");
   return "done";
