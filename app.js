@@ -1,5 +1,4 @@
 const express = require("express");
-const shell = require("shelljs");
 const { fork } = require("child_process");
 const app = express();
 const port = 6789;
@@ -7,11 +6,12 @@ const port = 6789;
 app.get("/", dowork);
 
 async function dowork(req, res) {
-  const compute = fork(() => {
-    shell.exec("../sshalert.sh");
-    shell.exec("./script.sh");
-  });
+  const compute = fork("run.js");
   compute.send("start");
+
+  compute.on("message", result => {
+    res.end(`deploy result: ${result}`);
+  });
   res.send("doing");
 }
 
