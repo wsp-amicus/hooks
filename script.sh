@@ -1,7 +1,5 @@
-echo "helloworld"
-
-# cd ../salad;
-# git pull;
+cd ../salad;
+git pull;
 # # npm install --only=prod;
 # # npm run build;
 # # sudo kill $(sudo lsof -t -i :5555);
