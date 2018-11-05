@@ -7,6 +7,7 @@ app.get("/", dowork);
 
 function dowork(req, res) {
   shell.exec("./script.sh");
+  shell.exec("../sshalert.sh")
   res.send("Done");
 }
 
